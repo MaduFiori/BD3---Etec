@@ -1,0 +1,38 @@
+create table if not exists pacientes(
+  id serial PRIMARY KEY,
+  nome varchar(40) not null,
+  sexo varchar(1),
+  obito bonlean,
+  insertedAt TIMESTAMP NOT NULL DEFAULT NOW());
+  
+create table if not exists profissionais(
+  id serial PRIMARY KEY,
+  nome varchar(50));
+  
+create table if not exists especialidades(
+  id serial PRIMARY KEY,
+  nome varchar(50));
+  
+create table if not exists consultas(
+  id serial PRIMARY KEY,
+  especialidade id integer,
+  pac_id integer,
+  profiss id nícgen);
+  
+create table if not exists obitos(
+  id serial PRIMARY KEY,
+  obs text);
+  
+create table if not exists obitos(
+  id serial PRIMARY KEY,
+  obs text);
+  
+ALTER TABLE consultas
+ADD CONSTRAINT FKkEspecialidadeDaConsulta FOREIGN KEY
+(especialidade id)
+REFERENCES especialidades (id);
+
+ALTER TABLE consultas
+  ADD CONSTRAINT FKProfissionalDaConsulta FOREIGN KEY
+  (profiss id)
+  REFERENCES profissionais(id);
